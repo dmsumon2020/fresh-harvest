@@ -14,7 +14,7 @@ export default function About() {
           />
         </div>
         <div className="my-story flex-1">
-          <div className="flex flex-col justify-center h-full">
+          <div className="flex flex-col justify-center items-start h-full">
             <Subheading title="About us" />
             <p className="">
               From humble beginnings, Chef Alex started in a small kitchen,
