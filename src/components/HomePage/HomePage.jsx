@@ -1,3 +1,9 @@
+import About from "./About";
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <About />
+    </div>
+  );
 }
