@@ -6,9 +6,13 @@ export const productsApi = createApi({
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => "products",
-      transformResponse: (response) => response.data.slice(0, 8), // Limit to 8
+      transformResponse: (res) => res.data.slice(0, 8),
+    }),
+    getProductById: builder.query({
+      query: (id) => `products/${id}`,
+      transformResponse: (res) => res.data,
     }),
   }),
 });
 
-export const { useGetProductsQuery } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery } = productsApi;
