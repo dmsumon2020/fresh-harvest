@@ -1,25 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useGetProductsQuery } from "@/store/productsApi";
+import React from "react";
 
 const AllProducts = () => {
-  const [products, setProducts] = useState([]);
+  const { data: products, error, isLoading } = useGetProductsQuery();
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("https://code-commando.com/api/v1/products");
-        const json = await res.json();
-        if (json.success) {
-          setProducts(json.data.slice(0, 8)); // Limit to 8 products
-        }
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  if (isLoading)
+    return <p className="text-center py-10">Loading products...</p>;
+  if (error)
+    return (
+      <p className="text-center py-10 text-red-500">Error loading products</p>
+    );
 
   return (
     <div className="container mx-auto p-4">
@@ -28,7 +20,7 @@ const AllProducts = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="border rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
+            className=" rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
           >
             <img
               src={product.images[0]}
@@ -41,7 +33,7 @@ const AllProducts = () => {
             <p className="text-green-600 font-bold text-center mb-3">
               ${product.price.toFixed(2)}
             </p>
-            <button className="mt-auto px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+            <button className="rubik-font-class mt-auto px-4 py-2 w-full block text-[18px] font-medium border border-[#d9d9d9] bg-white rounded-[10px] hover:bg-[#FF6A1A] hover:text-white transition">
               Add to Cart
             </button>
           </div>
