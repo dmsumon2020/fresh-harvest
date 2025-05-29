@@ -1,17 +1,46 @@
 "use client";
 
 import React, { useState } from "react";
-import { useGetProductByIdQuery } from "@/store/productsApi"; // adjust the import path
+import {
+  useGetProductByIdQuery,
+  useGetCategoryByIdQuery,
+} from "@/store/productsApi"; // adjust the import path as needed
 import { FaCartArrowDown } from "react-icons/fa";
 
 export default function Product({ params }) {
-  const { data: product, isLoading, error } = useGetProductByIdQuery(params.id);
+  const {
+    data: product,
+    isLoading: productLoading,
+    error: productError,
+  } = useGetProductByIdQuery(params.id);
+
+  // Grab categoryId from product if available
+  const categoryId = product?.categoryId;
+
+  const {
+    data: category,
+    isLoading: categoryLoading,
+    error: categoryError,
+  } = useGetCategoryByIdQuery(categoryId, {
+    skip: !categoryId, // skip fetching if no categoryId yet
+  });
+
   const [quantity, setQuantity] = useState(1);
 
-  if (isLoading) return <div className="text-center py-10">Loading...</div>;
-  if (error || !product)
+  if (productLoading)
+    return <div className="text-center py-10">Loading product...</div>;
+
+  if (productError || !product)
     return (
       <div className="text-center text-red-500 py-10">Product not found.</div>
+    );
+
+  if (categoryLoading)
+    return <div className="text-center py-4">Loading category...</div>;
+
+  if (categoryError)
+    return (
+      <div className="text-center text-red-500 py-4">Category not found.</div>
     );
 
   return (
@@ -29,7 +58,7 @@ export default function Product({ params }) {
       <div className="flex flex-col justify-start gap-4">
         {/* Category */}
         <span className="inline-block text-sm font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full w-fit">
-          Fruits
+          {category?.categoryName || "Category"}
         </span>
 
         {/* Name */}
@@ -46,7 +75,6 @@ export default function Product({ params }) {
         </div>
 
         {/* Price */}
-
         <div className="rubik-font-class text-[#FF6A1A] font-[600] text-[32px] leading-[100%] tracking-[-2%]">
           ${product.price}/kg
         </div>
@@ -81,9 +109,7 @@ export default function Product({ params }) {
             Save as favorite
           </button>
           <button className="flex items-center gap-2 px-12 py-3 bg-[#FF6A1A] text-[18px] font-semibold text-white rounded-lg hover:bg-[#f4f6f6] hover:text-[#4A4A52]">
-            <span>
-              <FaCartArrowDown />
-            </span>
+            <FaCartArrowDown />
             Add to cart
           </button>
         </div>
