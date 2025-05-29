@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 export default function About() {
   return (
     <section>
-      <div className="w-11/12 md:w-9/12 mx-auto flex flex-col lg:flex-row gap-10 lg:gap-24 py-20">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-24 py-20">
         <div className="flex-1 relative h-96">
           <Image
             fill
