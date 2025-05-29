@@ -1,10 +1,12 @@
 export default function Subheading({ title }) {
   return (
     <h3
-      className="bg-[#f1f5ec] subheading inline-block px-4 py-1 rounded text-2xl font-medium"
+      className="subheading text-2xl font-medium text-center"
       style={{ letterSpacing: "-0.02em" }}
     >
-      {title}
+      <span className="bg-[#f1f5ec] px-4 py-1 rounded inline-block mx-auto">
+        {title}
+      </span>
     </h3>
   );
 }

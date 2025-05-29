@@ -2,30 +2,34 @@
 
 import React from "react";
 import { useGetProductsQuery } from "@/store/productsApi";
-import { FaCartArrowDown } from "react-icons/fa";
+import Heading from "../Heading/Heading";
+import Subheading from "../Subheading/Subheading";
 
-const CategoryProducts = ({ categoryId }) => {
+const CategoryProducts = ({ categoryId, excludeId }) => {
   const { data: products, isLoading, error } = useGetProductsQuery();
 
   if (isLoading) return <div>Loading products...</div>;
   if (error) return <div>Error loading products.</div>;
 
-  // Filter products by categoryId and limit to 4
+  // Filter by categoryId and exclude the current product
   const filteredProducts = products
-    ?.filter((product) => product.categoryId === categoryId)
+    ?.filter(
+      (product) => product.categoryId === categoryId && product.id !== excludeId
+    )
     .slice(0, 4);
 
   if (!filteredProducts?.length)
-    return <div>No products found for this category.</div>;
+    return <div>No related products found for this category.</div>;
 
   return (
-    <section className="max-w-6xl mx-auto  p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">All Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <section className="max-w-6xl mx-auto p-4">
+      <Subheading title="Our Products" />
+      <Heading title="Related Products" align="text-center" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-[60px]">
         {filteredProducts.map((product) => (
           <div
             key={product.id}
-            className=" rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
+            className="rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
           >
             <img
               src={product.images[0]}

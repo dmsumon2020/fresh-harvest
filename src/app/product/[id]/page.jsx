@@ -120,7 +120,10 @@ export default function Product({ params }) {
         {/* Related Products Section  */}
       </div>
 
-      <CategoryProducts categoryId={product?.categoryId} />
+      <CategoryProducts
+        categoryId={product?.categoryId}
+        excludeId={product?.id}
+      />
     </>
   );
 }
