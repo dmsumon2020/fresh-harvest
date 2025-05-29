@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Blog() {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-8">
+    <section className="max-w-6xl mx-auto px-4 py-[150px]">
       <Subheading title={"Our Blog"} />
       <Heading title={"Fresh Harvest Blog"} align="text-center" />
       <p className="text-center mb-8">
