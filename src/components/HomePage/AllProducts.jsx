@@ -4,6 +4,7 @@ import { useGetProductsQuery } from "@/store/productsApi";
 import React from "react";
 import Subheading from "../Subheading/Subheading";
 import Heading from "../Heading/Heading";
+import Link from "next/link";
 
 const AllProducts = () => {
   const { data: products, error, isLoading } = useGetProductsQuery();
@@ -31,11 +32,13 @@ const AllProducts = () => {
             key={product.id}
             className=" rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
           >
-            <img
-              src={product.images[0]}
-              alt={product.productName}
-              className="w-full h-40 object-cover rounded-xl mb-4"
-            />
+            <Link href={`/product/${product.id}`}>
+              <img
+                src={product.images[0]}
+                alt={product.productName}
+                className="w-full h-40 object-cover rounded-xl mb-4"
+              />
+            </Link>
             <h3 className="text-lg font-semibold text-center">
               {product.productName}
             </h3>
