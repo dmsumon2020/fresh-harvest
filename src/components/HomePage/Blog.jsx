@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Heading from "../Heading/Heading";
 import Subheading from "../Subheading/Subheading";
-import blogs from "@/data/blogs"; // adjust path if needed
+import blogs from "@/data/blogs";
 import Image from "next/image";
 
 export default function Blog() {

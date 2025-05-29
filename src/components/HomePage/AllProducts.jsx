@@ -2,6 +2,8 @@
 
 import { useGetProductsQuery } from "@/store/productsApi";
 import React from "react";
+import Subheading from "../Subheading/Subheading";
+import Heading from "../Heading/Heading";
 
 const AllProducts = () => {
   const { data: products, error, isLoading } = useGetProductsQuery();
@@ -14,8 +16,15 @@ const AllProducts = () => {
     );
 
   return (
-    <section className="max-w-6xl mx-auto  p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">All Products</h2>
+    <section className="max-w-6xl mx-auto px-4 py-[150px]">
+      <Subheading title={"Our Products"} />
+      <Heading title={"Our Fresh Products"} align="text-center" />
+      <p className="text-center mb-8">
+        Discover the freshest products handpicked just
+        <br />
+        From farm to table, we deliver quality you
+      </p>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {products.map((product) => (
           <div
