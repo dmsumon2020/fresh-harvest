@@ -6,6 +6,7 @@ import Subheading from "../Subheading/Subheading";
 import Heading from "../Heading/Heading";
 import Link from "next/link";
 import GetAllCategories from "../GetAllCategories/GetAllCategories";
+import Button from "../Button/Button";
 
 const AllProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -43,7 +44,7 @@ const AllProducts = () => {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {visibleProducts.map((product) => (
+        {visibleProducts.slice(0, 8).map((product) => (
           <div
             key={product.id}
             className="rounded-2xl shadow hover:shadow-lg transition duration-300 p-4 flex flex-col items-center"
@@ -61,11 +62,18 @@ const AllProducts = () => {
             <p className="text-green-600 font-bold text-center mb-3">
               ${product.price.toFixed(2)}
             </p>
-            <button className="rubik-font-class mt-auto px-4 py-2 w-full block text-[18px] font-medium border border-[#d9d9d9] bg-white rounded-[10px] hover:bg-[#FF6A1A] hover:text-white transition">
-              Add to Cart
-            </button>
+
+            <Link href={`/product/${product.id}`}>
+              <button className="rubik-font-class cursor-pointer mt-auto px-4 py-2 w-full block text-[18px] font-medium border border-[#d9d9d9] bg-white rounded-[10px] hover:bg-[#FF6A1A] hover:text-white transition">
+                Add to Cart
+              </button>
+            </Link>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Button text={"See All Products"} link={"/products"} />
       </div>
     </section>
   );
