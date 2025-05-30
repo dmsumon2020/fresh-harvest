@@ -5,6 +5,7 @@ import React from "react";
 import Subheading from "../Subheading/Subheading";
 import Heading from "../Heading/Heading";
 import Link from "next/link";
+import GetAllCategories from "../GetAllCategories/GetAllCategories";
 
 const AllProducts = () => {
   const { data: products, error, isLoading } = useGetProductsQuery();
@@ -25,6 +26,8 @@ const AllProducts = () => {
         <br />
         From farm to table, we deliver quality you
       </p>
+
+      <GetAllCategories />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {products.map((product) => (
