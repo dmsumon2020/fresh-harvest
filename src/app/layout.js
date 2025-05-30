@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Questrial, Rubik } from "next/font/google";
 import "./globals.css";
 import ProviderWrapper from "./ProviderWrapper";
 import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +36,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rubik.variable} ${questrial.variable} antialiased font-questrial`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rubik.variable} ${questrial.variable} antialiased font-questrial relative`}
       >
+        <Navbar />
         <ProviderWrapper>{children}</ProviderWrapper>
         <Footer />
       </body>
