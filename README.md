@@ -2,6 +2,8 @@
 
 Fresh Harvest is a modern web application built with **Next.js**, **Tailwind CSS**, and **Redux Toolkit with RTK Query**. It offers a seamless and responsive user experience for browsing and managing fresh produce. This project is designed with performance and scalability in mind.
 
+Check out the live demo here: [Fresh Harvest Live](https://fresh-harvest-alpha.vercel.app/)
+
 ---
 
 ## 🚀 Tech Stack
