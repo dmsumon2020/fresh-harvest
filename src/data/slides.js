@@ -1,7 +1,7 @@
 const slides = [
   {
     id: 1,
-    backgroundImage: "/assets/slides/slide1-bg.jpg",
+    backgroundImage: "/assets/slides/slide1-bg-min.png",
     secondaryImage: "/assets/slides/slider-farmer-1.png",
     title: "Fresh Picks Delivered Daily",
     description:
@@ -9,7 +9,7 @@ const slides = [
   },
   {
     id: 2,
-    backgroundImage: "/assets/slides/slide1-bg.jpg",
+    backgroundImage: "/assets/slides/slide1-bg-min.png",
     secondaryImage: "/assets/slides/slider-farmer-2.png",
     title: "Organic Goodness You Deserve",
     description:
@@ -17,7 +17,7 @@ const slides = [
   },
   {
     id: 3,
-    backgroundImage: "/assets/slides/slide1-bg.jpg",
+    backgroundImage: "/assets/slides/slide1-bg-min.png",
     secondaryImage: "/assets/slides/slider-farmer-3.png",
     title: "Healthy Food, Happy Life",
     description:

@@ -11,7 +11,7 @@ export default function Slider() {
     <section className="w-full">
       <Swiper
         modules={[Autoplay]}
-        //  autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 5000 }}
         loop={true}
         slidesPerView={1}
       >
@@ -30,7 +30,7 @@ export default function Slider() {
                 <h2 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl leading-relaxed drop-shadow">
+                <p className="text-lg md:text-xl leading-relaxed drop-shadow text-[#4A4A52]">
                   {slide.description}
                 </p>
                 <button className="bg-[#FF6A1A] hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg">

@@ -1,6 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules"; // ✅ Import Autoplay module
 import "swiper/css";
 import testimonials from "@/data/testimonials";
 import Image from "next/image";
@@ -20,15 +21,25 @@ export default function Testimonial() {
         experience.
       </p>
 
-      <Swiper slidesPerView={1} loop={true} spaceBetween={30}>
+      <Swiper
+        slidesPerView={1}
+        loop={true}
+        spaceBetween={30}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]} // ✅ Include Autoplay module
+      >
         {testimonials.map((testimonial) => (
           <SwiperSlide key={testimonial.id}>
             <div className="flex items-center gap-6 shadow">
               <Image
                 src={testimonial.reviewerImage}
                 alt={testimonial.reviewerName}
+                className="h-[30rem]"
                 width={500}
-                height={800}
+                height={300}
               />
               <div className="bg-[#f9f9f9] p-8">
                 <p className="text-gray-700 text-base mb-2 leading-relaxed ">

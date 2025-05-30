@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     id: 2,
-    reviewerImage: "/assets/images/jane.jpg",
+    reviewerImage: "/assets/images/john.jpg",
     reviewerName: "John Smith",
     reviewDescription:
       "I've been using Fresh Harvest for over a year now. \n" +
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     id: 3,
-    reviewerImage: "/assets/images/jane.jpg",
+    reviewerImage: "/assets/images/elly.jpg",
     reviewerName: "Emily Carter",
     reviewDescription:
       "Fresh Harvest makes healthy eating so easy. \n" +
