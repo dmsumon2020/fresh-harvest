@@ -7,12 +7,13 @@ export default function About() {
   return (
     <section>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-24 py-20">
-        <div className="flex-1 relative h-96">
+        <div className="flex-1 relative ">
           <Image
-            fill
             alt="Person image"
-            src="/assets/images/chef.jpg"
+            src="/assets/images/man33.png"
             className="object-cover"
+            width={500}
+            height={700}
           />
         </div>
         <div className="my-story flex-1">
