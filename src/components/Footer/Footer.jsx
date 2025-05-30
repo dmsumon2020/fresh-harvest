@@ -112,19 +112,19 @@ export default function Footer() {
           </h6>
           <div className="flex items-center gap-4">
             <Image
-              src="/assets/images/visa.png"
+              src="/assets/images/visa2.jpg"
               width={82}
               height={40}
               alt="visa"
             />
             <Image
-              src="/assets/images/paypal.png"
+              src="/assets/images/paypal2.jpg"
               width={82}
               height={40}
               alt="visa"
             />
             <Image
-              src="/assets/images/apple.png"
+              src="/assets/images/apple2.jpg"
               width={82}
               height={40}
               alt="visa"
